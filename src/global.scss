@@ -1,0 +1,220 @@
+/* Estilos Globais do Aplicativo de Chamados Técnicos */
+
+/* Importação da fonte Inter do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Fonte global */
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Variáveis globais customizadas */
+:root {
+  --app-gradient-start: #3880ff;
+  --app-gradient-end: #5260ff;
+  --app-bg: #f0f2f5;
+  --app-card-bg: #ffffff;
+  --app-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --app-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --app-radius: 16px;
+  --app-radius-sm: 12px;
+}
+
+/* Reset e base */
+ion-content {
+  --background: var(--app-bg);
+}
+
+/* Toolbar customizada */
+ion-toolbar {
+  --background: linear-gradient(135deg, var(--app-gradient-start), var(--app-gradient-end));
+  --color: #ffffff;
+  --border-width: 0;
+}
+
+ion-toolbar ion-title {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+ion-toolbar ion-back-button {
+  --color: #ffffff;
+}
+
+/* Cards globais */
+ion-card {
+  border-radius: var(--app-radius) !important;
+  box-shadow: var(--app-shadow) !important;
+  margin: 12px 16px;
+  border: none;
+  overflow: hidden;
+}
+
+ion-card-header {
+  padding: 16px 20px 8px;
+}
+
+ion-card-content {
+  padding: 8px 20px 16px;
+}
+
+/* Badges de prioridade */
+.badge-prioridade {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.badge-prioridade.baixa {
+  background: rgba(45, 211, 111, 0.15);
+  color: #28ba62;
+}
+
+.badge-prioridade.media {
+  background: rgba(255, 196, 9, 0.15);
+  color: #e0ac08;
+}
+
+.badge-prioridade.alta {
+  background: rgba(235, 68, 90, 0.15);
+  color: #eb445a;
+}
+
+.badge-prioridade.urgente {
+  background: rgba(235, 68, 90, 0.25);
+  color: #cf3c4f;
+  animation: pulse-urgente 2s infinite;
+}
+
+@keyframes pulse-urgente {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Badges de status */
+.badge-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.badge-status.aberto {
+  background: rgba(56, 128, 255, 0.15);
+  color: #3880ff;
+}
+
+.badge-status.em-atendimento {
+  background: rgba(255, 196, 9, 0.15);
+  color: #e0ac08;
+}
+
+.badge-status.concluido {
+  background: rgba(45, 211, 111, 0.15);
+  color: #28ba62;
+}
+
+.badge-status.cancelado {
+  background: rgba(146, 148, 156, 0.15);
+  color: #92949c;
+}
+
+/* Badges de situação */
+.badge-situacao {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-situacao.ativo {
+  background: rgba(45, 211, 111, 0.15);
+  color: #28ba62;
+}
+
+.badge-situacao.inativo {
+  background: rgba(235, 68, 90, 0.15);
+  color: #eb445a;
+}
+
+/* Botões customizados */
+ion-button {
+  --border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: none;
+}
+
+/* Inputs customizados */
+ion-item {
+  --border-radius: 12px;
+  --padding-start: 16px;
+  margin-bottom: 8px;
+}
+
+/* Animações de entrada */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo para listas */
+ion-list {
+  background: transparent;
+  padding: 0;
+}
+
+/* Select e inputs com aparência moderna */
+ion-select {
+  --placeholder-color: #92949c;
+}
+
+ion-input, ion-textarea {
+  --placeholder-color: #92949c;
+}
+
+/* Scrollbar customizada (web) */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}

@@ -1,0 +1,53 @@
+<ion-content class="login-content" [fullscreen]="true">
+  <div class="login-container animate-fade-in">
+
+    <!-- Logo e título -->
+    <div class="login-header">
+      <div class="logo-circle">
+        <ion-icon name="construct-outline"></ion-icon>
+      </div>
+      <h1>Chamados Técnicos</h1>
+      <p>Sistema de Controle e Gestão</p>
+    </div>
+
+    <!-- Formulário de login -->
+    <div class="login-form">
+      <div class="input-group">
+        <ion-icon name="person-outline" class="input-icon"></ion-icon>
+        <ion-input
+          [(ngModel)]="usuario"
+          placeholder="Digite seu usuário"
+          type="text"
+          class="custom-input"
+          id="input-usuario">
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+        <ion-input
+          [(ngModel)]="senha"
+          placeholder="Digite sua senha"
+          type="password"
+          class="custom-input"
+          id="input-senha">
+        </ion-input>
+      </div>
+
+      <ion-button
+        expand="block"
+        (click)="login()"
+        class="login-btn"
+        id="btn-login">
+        <ion-icon name="log-in-outline" slot="start"></ion-icon>
+        Entrar no Sistema
+      </ion-button>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="login-footer">
+      <p>v1.0 &middot; Ionic/Angular</p>
+    </div>
+
+  </div>
+</ion-content>

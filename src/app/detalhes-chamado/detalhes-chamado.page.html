@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/lista-chamados" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes do Chamado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="detalhes-container animate-fade-in" *ngIf="chamado">
+
+    <!-- Cabeçalho com ID e badges -->
+    <div class="detalhes-header">
+      <div class="header-top">
+        <span class="chamado-id">#{{ chamado.id }}</span>
+        <span class="badge-prioridade" [ngClass]="getClassePrioridade(chamado.prioridade)">
+          {{ chamado.prioridade }}
+        </span>
+      </div>
+      <h2>{{ chamado.titulo }}</h2>
+      <span class="badge-status" [ngClass]="getClasseStatus(chamado.status)">
+        {{ chamado.status }}
+      </span>
+    </div>
+
+    <!-- Informações detalhadas -->
+    <div class="info-section">
+      <h4>Informações do Chamado</h4>
+
+      <div class="info-row">
+        <div class="info-label">
+          <ion-icon name="person-outline"></ion-icon>
+          Solicitante
+        </div>
+        <div class="info-value">{{ chamado.solicitante }}</div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-label">
+          <ion-icon name="business-outline"></ion-icon>
+          Setor
+        </div>
+        <div class="info-value">{{ chamado.setor || 'Não informado' }}</div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-label">
+          <ion-icon name="calendar-outline"></ion-icon>
+          Data de Abertura
+        </div>
+        <div class="info-value">{{ chamado.dataAbertura }}</div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-label">
+          <ion-icon name="build-outline"></ion-icon>
+          Técnico Responsável
+        </div>
+        <div class="info-value">{{ chamado.tecnico }}</div>
+      </div>
+    </div>
+
+    <!-- Descrição -->
+    <div class="info-section">
+      <h4>Descrição do Problema</h4>
+      <p class="descricao-texto">{{ chamado.descricao }}</p>
+    </div>
+
+    <!-- Observação -->
+    <div class="info-section" *ngIf="chamado.observacao">
+      <h4>Observação do Atendimento</h4>
+      <p class="descricao-texto observacao">{{ chamado.observacao }}</p>
+    </div>
+
+    <!-- Botão Atualizar Status -->
+    <ion-button
+      expand="block"
+      (click)="atualizarStatus()"
+      class="btn-atualizar"
+      id="btn-atualizar-status">
+      <ion-icon name="refresh-outline" slot="start"></ion-icon>
+      Atualizar Status
+    </ion-button>
+
+  </div>
+
+  <!-- Chamado não encontrado -->
+  <div class="empty-state" *ngIf="!chamado">
+    <ion-icon name="alert-circle-outline"></ion-icon>
+    <h3>Chamado não encontrado</h3>
+    <p>O chamado solicitado não existe ou foi removido.</p>
+  </div>
+</ion-content>

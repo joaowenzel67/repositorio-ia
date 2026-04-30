@@ -1,0 +1,163 @@
+.resumo-container {
+  padding: 16px;
+}
+
+.total-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #3880ff, #5260ff);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 32px rgba(56, 128, 255, 0.3);
+
+  .total-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ion-icon {
+      font-size: 32px;
+      color: #ffffff;
+    }
+  }
+
+  .total-info {
+    display: flex;
+    flex-direction: column;
+
+    .total-number {
+      font-size: 40px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .total-label {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+  }
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-left: 4px;
+
+  ion-icon {
+    font-size: 20px;
+    color: #3880ff;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #222428;
+    margin: 0;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  animation: fadeIn 0.4s ease-out both;
+
+  .stat-number {
+    display: block;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b6b6b;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .stat-bar {
+    height: 6px;
+    background: #f4f5f8;
+    border-radius: 3px;
+    overflow: hidden;
+
+    .stat-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.6s ease-out;
+      min-width: 2px;
+    }
+  }
+
+  // Cores por status
+  &.aberto {
+    .stat-number { color: #3880ff; }
+    .stat-fill { background: #3880ff; }
+  }
+  &.em-atendimento {
+    .stat-number { color: #ffc409; }
+    .stat-fill { background: #ffc409; }
+  }
+  &.concluido {
+    .stat-number { color: #2dd36f; }
+    .stat-fill { background: #2dd36f; }
+  }
+  &.cancelado {
+    .stat-number { color: #92949c; }
+    .stat-fill { background: #92949c; }
+  }
+
+  // Cores por prioridade
+  &.baixa {
+    .stat-number { color: #2dd36f; }
+    .stat-fill { background: #2dd36f; }
+  }
+  &.media {
+    .stat-number { color: #ffc409; }
+    .stat-fill { background: #ffc409; }
+  }
+  &.alta {
+    .stat-number { color: #eb445a; }
+    .stat-fill { background: #eb445a; }
+  }
+  &.urgente {
+    .stat-number { color: #cf3c4f; }
+    .stat-fill { background: linear-gradient(135deg, #eb445a, #cf3c4f); }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

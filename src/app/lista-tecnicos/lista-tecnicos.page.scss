@@ -1,0 +1,138 @@
+.list-container {
+  padding: 16px;
+}
+
+.list-count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(45, 211, 111, 0.08);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #2dd36f;
+  font-weight: 600;
+
+  ion-icon {
+    font-size: 18px;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 24px;
+  color: #92949c;
+
+  ion-icon {
+    font-size: 72px;
+    margin-bottom: 16px;
+    opacity: 0.4;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: #4a4a4a;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+.tecnico-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  animation: fadeIn 0.4s ease-out both;
+
+  .card-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    ion-icon {
+      font-size: 24px;
+    }
+
+    &.ativo {
+      background: rgba(45, 211, 111, 0.12);
+      ion-icon { color: #2dd36f; }
+    }
+
+    &.inativo {
+      background: rgba(235, 68, 90, 0.12);
+      ion-icon { color: #eb445a; }
+    }
+  }
+
+  .card-content {
+    flex: 1;
+    min-width: 0;
+
+    .card-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      gap: 8px;
+
+      h3 {
+        font-size: 15px;
+        font-weight: 700;
+        color: #222428;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .card-details {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .detail-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: #6b6b6b;
+
+        ion-icon {
+          font-size: 14px;
+          color: #92949c;
+        }
+      }
+    }
+  }
+
+  .btn-delete {
+    flex-shrink: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

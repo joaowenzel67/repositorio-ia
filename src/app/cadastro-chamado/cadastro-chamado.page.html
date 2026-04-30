@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Novo Chamado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="form-container animate-fade-in">
+
+    <div class="form-header">
+      <ion-icon name="create-outline" class="form-icon"></ion-icon>
+      <h2>Registrar Chamado</h2>
+      <p>Preencha os dados do chamado técnico</p>
+    </div>
+
+    <!-- Solicitante -->
+    <div class="form-group">
+      <label class="form-label">Solicitante *</label>
+      <ion-item lines="none" class="form-item">
+        <ion-input
+          [(ngModel)]="solicitante"
+          placeholder="Nome do solicitante"
+          id="input-solicitante">
+        </ion-input>
+      </ion-item>
+    </div>
+
+    <!-- Setor -->
+    <div class="form-group">
+      <label class="form-label">Setor</label>
+      <ion-item lines="none" class="form-item">
+        <ion-select
+          [(ngModel)]="setor"
+          placeholder="Selecione o setor"
+          interface="action-sheet"
+          id="select-setor">
+          <ion-select-option *ngFor="let s of setores" [value]="s">{{ s }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <!-- Título -->
+    <div class="form-group">
+      <label class="form-label">Título do Chamado *</label>
+      <ion-item lines="none" class="form-item">
+        <ion-input
+          [(ngModel)]="titulo"
+          placeholder="Ex: Computador não liga"
+          id="input-titulo">
+        </ion-input>
+      </ion-item>
+    </div>
+
+    <!-- Descrição -->
+    <div class="form-group">
+      <label class="form-label">Descrição do Problema *</label>
+      <ion-item lines="none" class="form-item">
+        <ion-textarea
+          [(ngModel)]="descricao"
+          placeholder="Descreva o problema detalhadamente"
+          rows="4"
+          id="input-descricao">
+        </ion-textarea>
+      </ion-item>
+    </div>
+
+    <!-- Prioridade -->
+    <div class="form-group">
+      <label class="form-label">Prioridade *</label>
+      <ion-item lines="none" class="form-item">
+        <ion-select
+          [(ngModel)]="prioridade"
+          placeholder="Selecione a prioridade"
+          interface="action-sheet"
+          id="select-prioridade">
+          <ion-select-option *ngFor="let p of prioridades" [value]="p">{{ p }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <!-- Data de Abertura -->
+    <div class="form-group">
+      <label class="form-label">Data de Abertura</label>
+      <ion-item lines="none" class="form-item">
+        <ion-input
+          [(ngModel)]="dataAbertura"
+          type="date"
+          id="input-data">
+        </ion-input>
+      </ion-item>
+    </div>
+
+    <!-- Técnico Responsável -->
+    <div class="form-group">
+      <label class="form-label">Técnico Responsável *</label>
+      <ion-item lines="none" class="form-item">
+        <ion-select
+          [(ngModel)]="tecnico"
+          placeholder="Selecione o técnico"
+          interface="action-sheet"
+          id="select-tecnico">
+          <ion-select-option *ngFor="let t of tecnicosAtivos" [value]="t.nome">
+            {{ t.nome }} - {{ t.especialidade }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <!-- Botão Salvar -->
+    <ion-button
+      expand="block"
+      (click)="salvar()"
+      class="btn-salvar"
+      id="btn-salvar-chamado">
+      <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+      Cadastrar Chamado
+    </ion-button>
+
+  </div>
+</ion-content>

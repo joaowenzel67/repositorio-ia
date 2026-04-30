@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Resumo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="resumo-container animate-fade-in">
+
+    <!-- Card Total Geral -->
+    <div class="total-card">
+      <div class="total-icon">
+        <ion-icon name="document-text-outline"></ion-icon>
+      </div>
+      <div class="total-info">
+        <span class="total-number">{{ totalChamados }}</span>
+        <span class="total-label">Total de Chamados</span>
+      </div>
+    </div>
+
+    <!-- Seção: Por Status -->
+    <div class="section-title">
+      <ion-icon name="flag-outline"></ion-icon>
+      <h3>Por Status</h3>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card aberto">
+        <span class="stat-number">{{ totalAberto }}</span>
+        <span class="stat-label">Aberto</span>
+        <div class="stat-bar">
+          <div class="stat-fill" [style.width.%]="totalChamados > 0 ? (totalAberto / totalChamados * 100) : 0"></div>
+        </div>
+      </div>
+
+      <div class="stat-card em-atendimento">
+        <span class="stat-number">{{ totalEmAtendimento }}</span>
+        <span class="stat-label">Em Atendimento</span>
+        <div class="stat-bar">
+          <div class="stat-fill" [style.width.%]="totalChamados > 0 ? (totalEmAtendimento / totalChamados * 100) : 0"></div>
+        </div>
+      </div>
+
+      <div class="stat-card concluido">
+        <span class="stat-number">{{ totalConcluido }}</span>
+        <span class="stat-label">Concluído</span>
+        <div class="stat-bar">
+          <div class="stat-fill" [style.width.%]="totalChamados > 0 ? (totalConcluido / totalChamados * 100) : 0"></div>
+        </div>
+      </div>
+
+      <div class="stat-card cancelado">
+        <span class="stat-number">{{ totalCancelado }}</span>
+        <span class="stat-label">Cancelado</span>
+        <div class="stat-bar">
+          <div class="stat-fill" [style.width.%]="totalChamados > 0 ? (totalCancelado / totalChamados * 100) : 0"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção: Por Prioridade -->
+    <div class="section-title">
+      <ion-icon name="alert-circle-outline"></ion-icon>
+      <h3>Por Prioridade</h3>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card baixa">
+        <span class="stat-number">{{ totalBaixa }}</span>
+        <span class="stat-label">Baixa</span>
+        <div class="stat-bar">
+          <div class="stat-fill" [style.width.%]="totalChamados > 0 ? (totalBaixa / totalChamados * 100) : 0"></div>
+        </div>
+      </div>
+
+      <div class="stat-card media">
+        <span class="stat-number">{{ totalMedia }}</span>
+        <span class="stat-label">Média</span>
+        <div class="stat-bar">
+          <div class="stat-fill" [style.width.%]="totalChamados > 0 ? (totalMedia / totalChamados * 100) : 0"></div>
+        </div>
+      </div>
+
+      <div class="stat-card alta">
+        <span class="stat-number">{{ totalAlta }}</span>
+        <span class="stat-label">Alta</span>
+        <div class="stat-bar">
+          <div class="stat-fill" [style.width.%]="totalChamados > 0 ? (totalAlta / totalChamados * 100) : 0"></div>
+        </div>
+      </div>
+
+      <div class="stat-card urgente">
+        <span class="stat-number">{{ totalUrgente }}</span>
+        <span class="stat-label">Urgente</span>
+        <div class="stat-bar">
+          <div class="stat-fill" [style.width.%]="totalChamados > 0 ? (totalUrgente / totalChamados * 100) : 0"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

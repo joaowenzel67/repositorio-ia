@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sobre</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="sobre-container animate-fade-in">
+
+    <!-- Logo e nome -->
+    <div class="app-header">
+      <div class="app-logo">
+        <ion-icon name="construct-outline"></ion-icon>
+      </div>
+      <h1>{{ appInfo.nome }}</h1>
+      <span class="app-version">v{{ appInfo.versao }}</span>
+    </div>
+
+    <!-- Informações -->
+    <div class="info-section">
+      <div class="info-card">
+        <div class="info-row">
+          <div class="info-icon">
+            <ion-icon name="school-outline"></ion-icon>
+          </div>
+          <div class="info-text">
+            <span class="info-label">Aluno / Grupo</span>
+            <span class="info-value">{{ appInfo.aluno }}</span>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">
+            <ion-icon name="book-outline"></ion-icon>
+          </div>
+          <div class="info-text">
+            <span class="info-label">Disciplina</span>
+            <span class="info-value">{{ appInfo.disciplina }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Objetivo -->
+    <div class="info-section">
+      <h4>Objetivo do Projeto</h4>
+      <p class="objetivo-texto">{{ appInfo.objetivo }}</p>
+    </div>
+
+    <!-- Tecnologias -->
+    <div class="info-section">
+      <h4>Tecnologias Utilizadas</h4>
+      <div class="tech-grid">
+        <div class="tech-item" *ngFor="let tech of appInfo.tecnologias">
+          <div class="tech-icon">
+            <ion-icon [name]="tech.icone"></ion-icon>
+          </div>
+          <span>{{ tech.nome }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Observação -->
+    <div class="info-section obs-section">
+      <ion-icon name="information-circle-outline" class="obs-icon"></ion-icon>
+      <p class="obs-texto">
+        Este projeto não utiliza banco de dados. Os dados são armazenados em arrays e 
+        compartilhados entre telas por meio de um service Angular. Ao fechar o aplicativo, 
+        os dados serão perdidos.
+      </p>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="sobre-footer">
+      <p>Desenvolvido com ❤️ usando Ionic/Angular</p>
+      <p class="copyright">© 2026 - Todos os direitos reservados</p>
+    </div>
+
+  </div>
+</ion-content>

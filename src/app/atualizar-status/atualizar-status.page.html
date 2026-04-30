@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'/detalhes-chamado/' + (chamado?.id || '')" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Atualizar Status</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="form-container animate-fade-in" *ngIf="chamado">
+
+    <!-- Cabeçalho com info do chamado -->
+    <div class="chamado-info-header">
+      <span class="chamado-id">#{{ chamado.id }}</span>
+      <h3>{{ chamado.titulo }}</h3>
+      <p>{{ chamado.solicitante }} &middot; {{ chamado.setor }}</p>
+    </div>
+
+    <!-- Status Atual -->
+    <div class="status-atual">
+      <label class="form-label">Status Atual</label>
+      <div class="status-display">
+        <ion-icon name="radio-button-on-outline" color="primary"></ion-icon>
+        <span>{{ chamado.status }}</span>
+      </div>
+    </div>
+
+    <!-- Novo Status -->
+    <div class="form-group">
+      <label class="form-label">Novo Status</label>
+      <ion-item lines="none" class="form-item">
+        <ion-select
+          [(ngModel)]="novoStatus"
+          placeholder="Selecione o novo status"
+          interface="action-sheet"
+          id="select-novo-status">
+          <ion-select-option *ngFor="let s of statusOptions" [value]="s">{{ s }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <!-- Observação -->
+    <div class="form-group">
+      <label class="form-label">Observação do Atendimento</label>
+      <ion-item lines="none" class="form-item">
+        <ion-textarea
+          [(ngModel)]="observacao"
+          placeholder="Registre observações sobre o atendimento"
+          rows="5"
+          id="input-observacao">
+        </ion-textarea>
+      </ion-item>
+    </div>
+
+    <!-- Botão Salvar -->
+    <ion-button
+      expand="block"
+      (click)="salvar()"
+      class="btn-salvar"
+      id="btn-salvar-status">
+      <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+      Salvar Atualização
+    </ion-button>
+
+  </div>
+</ion-content>

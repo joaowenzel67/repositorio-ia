@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Novo Técnico</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="form-container animate-fade-in">
+
+    <div class="form-header">
+      <ion-icon name="person-add-outline" class="form-icon"></ion-icon>
+      <h2>Cadastrar Técnico</h2>
+      <p>Preencha os dados do técnico responsável</p>
+    </div>
+
+    <!-- Nome -->
+    <div class="form-group">
+      <label class="form-label">Nome do Técnico *</label>
+      <ion-item lines="none" class="form-item">
+        <ion-input
+          [(ngModel)]="nome"
+          placeholder="Nome completo"
+          id="input-nome-tecnico">
+        </ion-input>
+      </ion-item>
+    </div>
+
+    <!-- Especialidade -->
+    <div class="form-group">
+      <label class="form-label">Especialidade *</label>
+      <ion-item lines="none" class="form-item">
+        <ion-select
+          [(ngModel)]="especialidade"
+          placeholder="Selecione a especialidade"
+          interface="action-sheet"
+          id="select-especialidade">
+          <ion-select-option *ngFor="let e of especialidades" [value]="e">{{ e }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <!-- Contato -->
+    <div class="form-group">
+      <label class="form-label">Contato *</label>
+      <ion-item lines="none" class="form-item">
+        <ion-input
+          [(ngModel)]="contato"
+          placeholder="E-mail ou telefone"
+          id="input-contato-tecnico">
+        </ion-input>
+      </ion-item>
+    </div>
+
+    <!-- Situação -->
+    <div class="form-group">
+      <label class="form-label">Situação</label>
+      <ion-item lines="none" class="form-item">
+        <ion-select
+          [(ngModel)]="situacao"
+          interface="action-sheet"
+          id="select-situacao">
+          <ion-select-option *ngFor="let s of situacoes" [value]="s">{{ s }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <!-- Botão Salvar -->
+    <ion-button
+      expand="block"
+      (click)="salvar()"
+      class="btn-salvar"
+      id="btn-salvar-tecnico">
+      <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+      Cadastrar Técnico
+    </ion-button>
+
+  </div>
+</ion-content>
